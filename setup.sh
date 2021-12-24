@@ -26,7 +26,7 @@ function install_git {
 function copy_dotfiles {
   # Clone this repo
   echo "Cloning the dotfiles repo and copying the dotfiles to ~/.dotfiles"
-  git clone https://github.com/ospatil/dotfiles.git "WORK_DIR"/dotfiles
+  git clone https://github.com/ospatil/dotfiles.git "$WORK_DIR"/dotfiles
   # Copy the dotfiles folder to ~/.dotfiles
   cp -R "$WORK_DIR"/dotfiles/system "$DOTFILES_HOME"/system
   cp -R "$WORK_DIR"/dotfiles/config "$DOTFILES_HOME"/config
