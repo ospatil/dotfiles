@@ -45,7 +45,7 @@ function install_node {
   # # Install global packages
   while IFS= read -r line; do
     npm i -g "$line"
-  done < "$WORK_DIR"/dotfiles/install/global-npm.txt
+  done < "$WORK_DIR"/dotfiles/install/npmfile
 }
 
 function install_arkade_tools {
@@ -54,7 +54,7 @@ function install_arkade_tools {
   # Install tools
   while IFS= read -r line; do
     ark get "$line"
-  done < "$WORK_DIR"/dotfiles/install/arkade.txt
+  done < "$WORK_DIR"/dotfiles/install/arkadefile
   # Install vagrant vbguest extensions
   vagrant plugin install vagrant-vbguest
 }
@@ -64,7 +64,7 @@ function install_vscode_extensions {
   # Install base VS Code plugins
   while IFS= read -r line; do
     code --install-extension "$line" --force
-  done < "$WORK_DIR"/dotfiles/install/vscode-extensions.txt
+  done < "$WORK_DIR"/dotfiles/install/vscodefile
 }
 
 # Manual steps - install finda - https://keminglabs.com/finda/
