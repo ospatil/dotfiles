@@ -13,6 +13,8 @@ function install_homebrew {
   # Install brew
   echo "Installing Homebrew"
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # add brew to the path
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 }
 
 function install_git {

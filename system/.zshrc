@@ -9,6 +9,9 @@ for DOTFILE in "$DOTFILES_DIR"/dotfiles/.{env,alias,functions,path}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
+# For homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # for direnv, so that .envrc files can set up local environment properly
 eval "$(direnv hook zsh)"
 
