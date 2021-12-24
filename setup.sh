@@ -12,7 +12,7 @@ mkdir -p "$DOTFILES_HOME"
 function install_homebrew {
   # Install brew
   echo "Installing Homebrew"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 function install_git {
@@ -39,7 +39,7 @@ function install_brew_packages {
 function install_node {
   echo "Installing Node and global packages"
   # Install volta
-  sh -c "$(curl -fsSL https://get.volta.sh)"
+  bash -c "$(curl -fsSL https://get.volta.sh)"
   # Install node
   volta install node
   # # Install global packages
@@ -50,7 +50,7 @@ function install_node {
 
 function install_arkade_tools {
   echo "Installing Arkade and k8s tools"
-  sh -c "$(curl -fsSL https://get.arkade.dev)"
+  bash -c "$(curl -fsSL https://get.arkade.dev)"
   # Install tools
   while IFS= read -r line; do
     ark get "$line"
