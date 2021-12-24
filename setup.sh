@@ -33,9 +33,9 @@ function copy_dotfiles {
 }
 
 function install_brew_packages {
-  echi "Installing brew packages"
+  echo "Installing brew packages"
   # Install packages, casks and apps
-  brew bundle --file="$WORK_DIR"/dotfiles/install/
+  brew bundle --file="$WORK_DIR"/dotfiles/install/Brewfile
 }
 
 function install_node {
@@ -44,6 +44,8 @@ function install_node {
   bash -c "$(curl -fsSL https://get.volta.sh)"
   # Install node
   volta install node
+  export VOLTA_HOME=$HOME/.volta
+  export PATH=$PATH:$VOLTA_HOME/bin
   # # Install global packages
   while IFS= read -r line; do
     npm i -g "$line"
@@ -57,8 +59,8 @@ function install_arkade_tools {
   while IFS= read -r line; do
     ark get "$line"
   done < "$WORK_DIR"/dotfiles/install/arkadefile
-  # Install vagrant vbguest extensions
-  vagrant plugin install vagrant-vbguest
+  # Install vagrant vbguest extensions. Virtualbox doesn't work on M1 Macs
+  # vagrant plugin install vagrant-vbguest
 }
 
 function install_vscode_extensions {
@@ -69,17 +71,16 @@ function install_vscode_extensions {
   done < "$WORK_DIR"/dotfiles/install/vscodefile
 }
 
-# Manual steps - install finda - https://keminglabs.com/finda/
 function linkup {
   echo "Creating links"
   # Create links for dotfiles and config files
-  ln -sv "$DOTFILES_HOME/system/.zshrc" ~
-  ln -sv "$DOTFILES_HOME/system/.inputrc" ~
-  ln -sv "$DOTFILES_HOME/config/git/.gitconfig" ~
-  ln -sv "$DOTFILES_HOME/config/git/.gitignore_global" ~
+  ln -sfv "$DOTFILES_HOME/system/.zshrc" ~
+  ln -sfv "$DOTFILES_HOME/system/.inputrc" ~
+  ln -sfv "$DOTFILES_HOME/config/git/.gitconfig" ~
+  ln -sfv "$DOTFILES_HOME/config/git/.gitignore_global" ~
   # Create a directory for starship config
   mkdir -p "$HOME"/.config
-  ln -sv "$DOTFILES_HOME/config/starship/starship.toml" ~/.config
+  ln -sfv "$DOTFILES_HOME/config/starship/starship.toml" ~/.config
 }
 
 # Run the setup
@@ -88,6 +89,11 @@ install_git
 copy_dotfiles
 install_brew_packages
 install_node
-install_arkade_tools
+# 2021-12-24 arkade install gives error.
+# So fall back to installing tools through brew: kubernetes-cli, k9s, kind, helm, terraform, vagrant
+# install_arkade_tools
 install_vscode_extensions
 linkup
+
+# Manual steps
+# install finda - https://keminglabs.com/finda/ and pip3 install bpython

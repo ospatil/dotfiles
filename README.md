@@ -4,7 +4,7 @@ Dotfiles for macOS - more of a setup for a new Mac from scratch.
 
 ## Installation
 
-Run the script on the target Mac: `curl -fsSL https://raw.githubusercontent.com/ospatil/dotfiles/main/setup.sh | bash`
+Download this repo as zip on the new Mac, extract, change into the directory and execute `./setup.sh`.
 
 ## Notes
 
