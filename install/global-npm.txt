@@ -1,0 +1,7 @@
+0x
+create-nx-workspace
+degit
+npm-check-updates
+npmrc
+ungit
+yo

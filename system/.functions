@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Open man page as PDF
+function manpdf() {
+ man -t "${1}" | open -f -a /Applications/Preview.app/
+}
+
+# Open query in Dash app
+dash() {
+  case $# in
+    1) QUERY="$1";;
+    2) QUERY="$1:$2";;
+    *) echo "Usage: dash [docset] query"; return 1;
+  esac
+  open "dash://$QUERY"
+}

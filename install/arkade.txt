@@ -1,0 +1,10 @@
+dive
+helm
+jq
+k9s
+kind
+kubectl
+nats
+terraform
+vagrant
+yq

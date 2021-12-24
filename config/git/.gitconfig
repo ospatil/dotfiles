@@ -1,0 +1,25 @@
+[user]
+	name = Omkar Patil
+	email = ospatil@gmail.com
+[url "https://"]
+	insteadOf = git+https://
+[push]
+	default = simple
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
+	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+[http]
+	postBuffer = 157286400
+	sslVerify = false
+[credential]
+	helper = osxkeychain
+[core]
+  editor = code --wait
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED

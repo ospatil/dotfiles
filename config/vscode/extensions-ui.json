@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "Angular.ng-template",
+    "anteprimorac.html-end-tag-labels",
+    "ardenivanov.svelte-intellisense",
+    "austenc.tailwind-docs",
+    "bradlc.vscode-tailwindcss",
+    "fivethree.vscode-svelte-snippets",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "johnpapa.angular-essentials",
+    "johnpapa.Angular2",
+    "mkaufman.HTMLHint",
+    "nrwl.angular-console",
+    "ritwickdey.LiveServer",
+    "sdras.vue-vscode-extensionpack",
+    "svelte.svelte-vscode",
+    "techer.open-in-browser",
+    "Zignd.html-css-class-completion"
+  ]
+}

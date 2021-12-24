@@ -1,0 +1,16 @@
+#!/bin/bash
+
+export PATH="/usr/local/sbin:$PATH"
+
+# for golang
+export PATH=$PATH:~/go/bin
+
+# for Volta Node Version Manager
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Remove duplicates (preserving prepended items)
+# Source: http://unix.stackexchange.com/a/40755
+PATH=$(echo -n "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}')
+
+# Wrap up
+export PATH
