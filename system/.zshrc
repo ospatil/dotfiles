@@ -1,4 +1,3 @@
-
 #### FIG ENV VARIABLES ####
 [ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh]
 #### END FIG ENV VARIABLES ####
@@ -6,7 +5,7 @@
 DOTFILES_DIR="$HOME/.dotfiles"
 
 # source all dotfiles from ~/.dotfiles/dotfiles
-for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,functions,path}; do
+for DOTFILE in "$DOTFILES_DIR"/dotfiles/.{env,alias,functions,path}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
