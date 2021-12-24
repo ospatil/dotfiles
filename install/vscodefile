@@ -59,3 +59,4 @@ golang.go-nightly
 lunuan.kubernetes-templates
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-azuretools.vscode-docker
+ms-azuretools.vscode-dapr

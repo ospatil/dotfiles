@@ -1,10 +1,10 @@
 # dotfiles
 
-Dotfiles for macOS - for setting up a Mac from scratch.
+Dotfiles for macOS - more of a setup for a new Mac from scratch.
 
 ## Installation
 
-Run the script on the target Mac: `curl -s https://github.com/ospatil/dotfiles/setup.sh | bash`
+Run the script on the target Mac: `curl -s https://github.com/ospatil/dotfiles/setup.sh | /bin/bash`
 
 ## Notes
 
