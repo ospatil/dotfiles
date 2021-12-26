@@ -53,14 +53,12 @@ function install_node {
 }
 
 function install_arkade_tools {
-  echo "Installing Arkade and k8s tools"
-  bash -c "$(curl -fsSL https://get.arkade.dev)"
+  echo "Installing Arkade and kubernetes tools"
+  sudo sh -c "$(curl -fsSL https://get.arkade.dev)"
   # Install tools
   while IFS= read -r line; do
     ark get "$line"
   done < "$WORK_DIR"/dotfiles/install/arkadefile
-  # Install vagrant vbguest extensions. Virtualbox doesn't work on M1 Macs
-  # vagrant plugin install vagrant-vbguest
 }
 
 function install_vscode_extensions {
@@ -89,9 +87,7 @@ install_git
 copy_dotfiles
 install_brew_packages
 install_node
-# 2021-12-24 arkade install gives error.
-# So fall back to installing tools through brew: kubernetes-cli, k9s, kind, helm, terraform, vagrant
-# install_arkade_tools
+install_arkade_tools
 install_vscode_extensions
 linkup
 

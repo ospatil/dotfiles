@@ -9,6 +9,9 @@ PATH="$VOLTA_HOME/bin:$PATH"
 # for fig autocompletion
 PATH="$PATH:~/.fig/bin"
 
+# For arkade and kubernetes tools
+PATH="$PATH:$HOME/.arkade/bin"
+
 # Remove duplicates (preserving prepended items)
 # Source: http://unix.stackexchange.com/a/40755
 PATH=$(echo -n "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}')
