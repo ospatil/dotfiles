@@ -1,10 +1,13 @@
-export PATH="/usr/local/sbin:$PATH"
+PATH="/usr/local/sbin:$PATH"
 
 # for golang
-export PATH=$PATH:~/go/bin
+PATH="$PATH:~/go/bin"
 
 # for Volta Node Version Manager
-export PATH="$VOLTA_HOME/bin:$PATH"
+PATH="$VOLTA_HOME/bin:$PATH"
+
+# for fig autocompletion
+PATH="$PATH:~/.fig/bin"
 
 # Remove duplicates (preserving prepended items)
 # Source: http://unix.stackexchange.com/a/40755

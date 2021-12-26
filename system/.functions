@@ -25,3 +25,15 @@ meteo() {
   fi
   curl -s "$LOCALE.wttr.in/$LOCATION"
 }
+
+yq() {
+  docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
+}
+
+dive() {
+  docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest "$@"
+}
+
+kcat() {
+  docker run -it --network=host edenhill/kcat:1.7.0 "$@"
+}
