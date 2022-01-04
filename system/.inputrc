@@ -34,7 +34,3 @@ set convert-meta off
 # Filtered history search
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-
-# reinstate keys for clearing screen
-bind -m vi-command 'Control-l: clear-screen'
-bind -m vi-insert 'Control-l: clear-screen'

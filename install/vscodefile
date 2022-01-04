@@ -57,6 +57,7 @@ KevinRose.vsc-python-indent
 magicstack.MagicPython
 ms-python.vscode-pylance
 golang.go-nightly
+ja7ad.go-power
 lunuan.kubernetes-templates
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-azuretools.vscode-docker

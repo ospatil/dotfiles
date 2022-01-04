@@ -92,4 +92,6 @@ install_vscode_extensions
 linkup
 
 # Manual steps
-# install finda - https://keminglabs.com/finda/ and pip3 install bpython
+# install finda - https://keminglabs.com/finda/
+# pip3 install bpython
+# Install snazzy terminal theme - https://github.com/sindresorhus/terminal-snazzy and change font to jetbrains-mono-nerd-font 14 size

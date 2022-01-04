@@ -18,6 +18,12 @@ eval "$(direnv hook zsh)"
 # starship
 eval "$(starship init zsh)"
 
+# Use vi mode
+bindkey -v
+
+# zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 #### FIG ENV VARIABLES ####
 # Please make sure this block is at the end of this file.
 [ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh

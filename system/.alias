@@ -27,3 +27,10 @@ alias killfinder="killall Finder"
 alias killdock="killall Dock"
 alias killmenubar="killall SystemUIServer NotificationCenter"
 alias killos="killfinder && killdock && killmenubar"
+
+# ls replacement exa
+alias ls="exa -alsname --icons --group-directories-first --git -h --long"
+# cat replacement bat
+alias cat="bat"
+# dig replacement dog
+alias dig="dog"

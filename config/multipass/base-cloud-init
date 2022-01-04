@@ -1,0 +1,13 @@
+users:
+  - name: omkarpatil
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - <SSH public key goes here>
+
+package_upgrade: true
+
+packages:
+  - unzip
+  - git
+  - curl
