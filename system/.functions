@@ -7,7 +7,7 @@ function manpdf() {
 dash() {
   case $# in
     1) QUERY="$1";;
-    2) QUERY="$1:$2";;
+    2) QUERY="$1%3A$2";; # %3A is : char
     *) echo "Usage: dash [docset] query"; return 1;
   esac
   open "dash://$QUERY"
@@ -26,9 +26,11 @@ meteo() {
   curl -s "$LOCALE.wttr.in/$LOCATION"
 }
 
-yq() {
-  docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
-}
+# UPDATE 2022-01-04: Running yq as docker container makes it tedious to update yaml in place using environment variables
+# therefore, just install it using brew
+# yq() {
+#   docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
+# }
 
 dive() {
   docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest "$@"

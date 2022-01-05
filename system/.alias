@@ -28,9 +28,12 @@ alias killdock="killall Dock"
 alias killmenubar="killall SystemUIServer NotificationCenter"
 alias killos="killfinder && killdock && killmenubar"
 
-# ls replacement exa
+# exa - ls replacement
 alias ls="exa -alsname --icons --group-directories-first --git -h --long"
-# cat replacement bat
+# bat - cat replacement
 alias cat="bat"
-# dig replacement dog
+# dog - dig replacement
 alias dig="dog"
+
+# multipass
+alias mp="multipass"
