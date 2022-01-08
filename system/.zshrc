@@ -12,6 +12,10 @@ done
 # For homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# For pyenv
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
 # for direnv, so that .envrc files can set up local environment properly
 eval "$(direnv hook zsh)"
 
