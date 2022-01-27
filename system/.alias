@@ -32,8 +32,8 @@ alias killos="killfinder && killdock && killmenubar"
 alias ls="exa -alsname --icons --group-directories-first --git -h --long"
 # bat - cat replacement
 alias cat="bat"
-# dog - dig replacement
-alias dig="dog"
+# dog - dig replacement - 12-Jan-2022: Not really. Can't do something like dig +trace using dog.
+# alias dig="dog"
 
 # multipass
 alias mp="multipass"

@@ -1,6 +1,7 @@
 0x
 create-nx-workspace
 degit
+npkill
 npm-check-updates
 npmrc
 ungit
