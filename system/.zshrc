@@ -23,7 +23,7 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
 # Use vi mode
-bindkey -v
+# bindkey -v
 
 # zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
