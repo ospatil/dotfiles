@@ -73,6 +73,8 @@ function linkup {
   echo "Creating links"
   # Create links for dotfiles and config files
   ln -sfv "$DOTFILES_HOME/system/.zshrc" ~
+  ln -sfv "$DOTFILES_HOME/system/.bashrc" ~
+  ln -sfv "$DOTFILES_HOME/system/.bash_profile" ~
   ln -sfv "$DOTFILES_HOME/system/.inputrc" ~
   ln -sfv "$DOTFILES_HOME/config/git/.gitconfig" ~
   ln -sfv "$DOTFILES_HOME/config/git/.gitignore_global" ~
@@ -95,3 +97,4 @@ linkup
 # install finda - https://keminglabs.com/finda/
 # pip3 install bpython
 # Install snazzy terminal theme - https://github.com/sindresorhus/terminal-snazzy and change font to jetbrains-mono-nerd-font 14 size
+# Find the brew installed bash: 'which -a bash', add the path to '/etc/shells' and set the shell 'chpass -s <PATH>'.

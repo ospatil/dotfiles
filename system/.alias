@@ -37,3 +37,6 @@ alias cat="bat"
 
 # multipass
 alias mp="multipass"
+
+# grep with colored matches
+alias grep="grep --color=auto"
