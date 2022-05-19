@@ -63,3 +63,5 @@ lunuan.kubernetes-templates
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-azuretools.vscode-docker
 ms-azuretools.vscode-dapr
+hashicorp.terraform
+laszer25.terraform-azure-autocomplete

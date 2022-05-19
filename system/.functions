@@ -37,7 +37,7 @@ dive() {
 }
 
 kcat() {
-  docker run -it --network=host edenhill/kcat:1.7.0 "$@"
+  docker run -it --rm --network=host edenhill/kcat:1.7.0 "$@"
 }
 
 # Create a file and directories in the path along the way

@@ -16,6 +16,7 @@
     "sdras.vue-vscode-extensionpack",
     "svelte.svelte-vscode",
     "techer.open-in-browser",
-    "Zignd.html-css-class-completion"
+    "Zignd.html-css-class-completion",
+    "Tobermory.es6-string-html"
   ]
 }
