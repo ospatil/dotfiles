@@ -5,6 +5,7 @@
 	insteadOf = git+https://
 [push]
 	default = simple
+  autoSetupRemote = true
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
 	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
@@ -23,3 +24,5 @@
   tool = vscode
 [mergetool "vscode"]
   cmd = code --wait $MERGED
+[init]
+  defaultBranch = main
