@@ -54,10 +54,10 @@ kakumei.ts-debug
 wmaurer.change-case
 kisstkondoros.typelens
 donjayamanne.python-extension-pack
-frhtylcn.pythonsnippets
 KevinRose.vsc-python-indent
 magicstack.MagicPython
 ms-python.vscode-pylance
+TabNine.tabnine-vscode
 golang.go-nightly
 ja7ad.go-power
 lunuan.kubernetes-templates
@@ -67,3 +67,4 @@ ms-azuretools.vscode-dapr
 hashicorp.terraform
 laszer25.terraform-azure-autocomplete
 VisualStudioExptTeam.intellicode-api-usage-examples
+yatki.vscode-surround
