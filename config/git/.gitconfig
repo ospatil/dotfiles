@@ -13,7 +13,7 @@
 	postBuffer = 157286400
 	sslVerify = false
 [credential]
-	helper = osxkeychain
+	helper = /usr/local/bin/git-credential-manager
 [core]
   editor = code --wait
 [diff]

@@ -68,3 +68,7 @@ hashicorp.terraform
 laszer25.terraform-azure-autocomplete
 VisualStudioExptTeam.intellicode-api-usage-examples
 yatki.vscode-surround
+vscode-snippet.snippet
+Tyriar.sort-lines
+sourcery.sourcery
+charliermarsh.ruff
