@@ -69,6 +69,11 @@ function install_vscode_extensions {
   done < "$WORK_DIR"/dotfiles/install/vscodefile
 }
 
+function install_misc {
+  echo "Installing other utilities"
+  curl -s https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh && sudo chmod +x /usr/local/bin/cht.sh
+}
+
 function linkup {
   echo "Creating links"
   # Create links for dotfiles and config files
@@ -91,6 +96,7 @@ install_brew_packages
 install_node
 install_arkade_tools
 install_vscode_extensions
+install_misc
 linkup
 
 # Manual steps
