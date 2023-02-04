@@ -21,6 +21,9 @@ eval "$(direnv hook bash)"
 # starship
 eval "$(starship init bash)"
 
+# for node version management tool fnm
+eval "$(fnm env --use-on-cd)"
+
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Fig post block. Keep at the bottom of this file.
