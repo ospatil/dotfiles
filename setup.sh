@@ -86,6 +86,16 @@ function linkup {
   # Create a directory for starship config
   mkdir -p "$HOME"/.config
   ln -sfv "$DOTFILES_HOME/config/starship/starship.toml" ~/.config
+  # Create a directory for vim config
+  mkdir -p "$HOME"/.config/nvim
+  ln -sfv "$DOTFILES_HOME/config/nvim/init.vim" ~/.config/nvim
+}
+
+function setup_nvim {
+  echo "Setting up nvim"
+  # Download Plug plugin manager
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  nvim +PlugInstall +qall
 }
 
 # Run the setup
@@ -98,6 +108,7 @@ install_arkade_tools
 install_vscode_extensions
 install_misc
 linkup
+setup_nvim
 
 # Manual steps
 # install finda - https://keminglabs.com/finda/
