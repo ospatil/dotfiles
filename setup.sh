@@ -95,7 +95,7 @@ function setup_nvim {
   echo "Setting up nvim"
   # Download Plug plugin manager
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  nvim +PlugInstall +qall
+  nvim +PlugInstall +UpdateRemotePlugins +qall
 }
 
 # Run the setup
