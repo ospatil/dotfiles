@@ -41,4 +41,4 @@ alias mp="multipass"
 # grep with colored matches
 alias grep="grep --color=auto"
 
-alias docker="podman"
+alias av="aws-vault"
