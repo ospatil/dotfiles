@@ -1,0 +1,14 @@
+# theme = catppuccin-mocha
+font-size = 16
+mouse-hide-while-typing = true
+window-decoration = true
+keybind = all:cmd+shift+t=toggle_quick_terminal
+keybind = all:cmd+t=new_tab
+keybind = cmd+shift+up=jump_to_prompt:-1
+keybind = cmd+shift+down=jump_to_prompt:1
+keybind = cmd+home=scroll_to_top
+keybind = cmd+end=scroll_to_bottom
+keybind = cmd+page_up=scroll_page_up
+keybind = cmd+page_down=scroll_page_down
+# background-opacity = 0.7
+# background-blur-radius = 20

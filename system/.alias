@@ -29,11 +29,9 @@ alias killmenubar="killall SystemUIServer NotificationCenter"
 alias killos="killfinder && killdock && killmenubar"
 
 # exa - ls replacement
-alias ls="exa -alsname --icons --group-directories-first --git -h --long"
+alias ls="eza -alsname --icons --group-directories-first --git -h --long"
 # bat - cat replacement
 alias cat="bat"
-# dog - dig replacement - 12-Jan-2022: Not really. Can't do something like dig +trace using dog.
-# alias dig="dog"
 
 # multipass
 alias mp="multipass"
@@ -41,4 +39,8 @@ alias mp="multipass"
 # grep with colored matches
 alias grep="grep --color=auto"
 
-alias av="aws-vault"
+# to use granted for assuming AWS roles in shell
+alias assume=". assume"
+
+# open selected file when using fzf
+alias f='open "$(fzf)"'

@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/bashrc.pre.bash"
-
 DOTFILES_DIR="$HOME/.dotfiles"
 
 # source all dotfiles from ~/.dotfiles/system
@@ -11,10 +8,6 @@ done
 # For homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# For pyenv
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
 # for direnv, so that .envrc files can set up local environment properly
 eval "$(direnv hook bash)"
 
@@ -24,7 +17,8 @@ eval "$(starship init bash)"
 # for node version management tool fnm
 eval "$(fnm env --use-on-cd)"
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+# for fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/bashrc.post.bash"
+# for inshellisense
+[ -f ~/.inshellisense/bash/init.sh ] && source ~/.inshellisense/bash/init.sh

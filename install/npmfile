@@ -1,12 +1,11 @@
 0x
-create-nx-workspace
 degit
 http-server
 npkill
 npm-check-updates
 npmrc
 only-allow
-pnpm
 ungit
 wscat
-yo
+@microsoft/inshellisense@latest
+git2txt

@@ -40,34 +40,21 @@ function install_brew_packages {
 
 function install_node {
   echo "Installing Node and global packages"
-  # Install volta
-  bash -c "$(curl -fsSL https://get.volta.sh)"
   # Install node
-  volta install node
-  export VOLTA_HOME=$HOME/.volta
-  export PATH=$PATH:$VOLTA_HOME/bin
+  fnm install --lts
   # # Install global packages
   while IFS= read -r line; do
     npm i -g "$line"
   done < "$WORK_DIR"/dotfiles/install/npmfile
 }
 
-function install_arkade_tools {
-  echo "Installing Arkade and kubernetes tools"
-  sudo sh -c "$(curl -fsSL https://get.arkade.dev)"
-  # Install tools
-  while IFS= read -r line; do
-    ark get "$line"
-  done < "$WORK_DIR"/dotfiles/install/arkadefile
-}
-
-function install_vscode_extensions {
-  echo "Installing VS Code extensions"
-  # Install base VS Code plugins
-  while IFS= read -r line; do
-    code --install-extension "$line" --force
-  done < "$WORK_DIR"/dotfiles/install/vscodefile
-}
+# function install_vscode_extensions {
+#   echo "Installing VS Code extensions"
+#   # Install base VS Code plugins
+#   while IFS= read -r line; do
+#     code --install-extension "$line" --force
+#   done < "$WORK_DIR"/dotfiles/install/vscodefile
+# }
 
 function install_misc {
   echo "Installing other utilities"
@@ -89,6 +76,9 @@ function linkup {
   # Create a directory for vim config
   mkdir -p "$HOME"/.config/nvim
   ln -sfv "$DOTFILES_HOME/config/nvim/init.vim" ~/.config/nvim
+  # Create a directory for ghostty config
+  mkdir -p "$HOME"/.config/ghostty
+  ln -sfv "$DOTFILES_HOME/config/ghostty/config" ~/.config/ghostty
 }
 
 function setup_nvim {
@@ -104,8 +94,7 @@ install_git
 copy_dotfiles
 install_brew_packages
 install_node
-install_arkade_tools
-install_vscode_extensions
+# install_vscode_extensions
 install_misc
 linkup
 setup_nvim
