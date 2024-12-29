@@ -52,3 +52,7 @@ pdftools(){
 
   echo "stirling-pdf available at http://localhost:8888"
 }
+
+portinuse() {
+  lsof -nP -i :"$1"
+}
