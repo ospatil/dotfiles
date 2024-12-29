@@ -79,6 +79,9 @@ function linkup {
   # Create a directory for ghostty config
   mkdir -p "$HOME"/.config/ghostty
   ln -sfv "$DOTFILES_HOME/config/ghostty/config" ~/.config/ghostty
+
+  # create a directory for pdftools
+  mkdir -p "$HOME"/.config/stirling-pdf/trainingData "$HOME"/.config/stirling-pdf/extraConfigs "$HOME"/.config/stirling-pdf/logs
 }
 
 function setup_nvim {

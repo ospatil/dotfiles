@@ -14,7 +14,7 @@ dash() {
 }
 
 # Weather
-meteo() {
+weather() {
   local LOCALE
   LOCALE=$(echo "${LANG:-en}" | cut -c1-2)
   if [ $# -eq 0 ]; then
@@ -26,12 +26,6 @@ meteo() {
   curl -s "$LOCALE.wttr.in/$LOCATION"
 }
 
-# UPDATE 2022-01-04: Running yq as docker container makes it tedious to update yaml in place using environment variables
-# therefore, just install it using brew
-# yq() {
-#   docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
-# }
-
 dive() {
   docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest "$@"
 }
@@ -42,3 +36,19 @@ kcat() {
 
 # Create a file and directories in the path along the way
 touch2() { mkdir -p "$(dirname "$1")" && touch "$1" ; }
+
+pdftools(){
+  docker run -d \
+    -p 8888:8080 \
+    -v "$HOME"/.config/stirling-pdf/trainingData:/usr/share/tessdata \
+    -v "$HOME"/.config/stirling-pdf/extraConfigs:/configs \
+    -v "$HOME"/.config/stirling-pdf/logs:/logs \
+    -e DOCKER_ENABLE_SECURITY=false \
+    -e INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false \
+    -e LANGS=en_US \
+    --name stirling-pdf \
+    --rm \
+    stirlingtools/stirling-pdf:latest
+
+  echo "stirling-pdf available at http://localhost:8888"
+}

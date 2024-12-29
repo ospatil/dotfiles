@@ -43,24 +43,3 @@ highlight OperatorSandwichBuns guifg='#aa91a0' gui=underline ctermfg=172 cterm=u
 highlight OperatorSandwichChange guifg='#edc41f' gui=underline ctermfg='yellow' cterm=underline
 highlight OperatorSandwichAdd guibg='#b1fa87' gui=none ctermbg='green' cterm=none
 highlight OperatorSandwichDelete guibg='#cf5963' gui=none ctermbg='red' cterm=none
-
-" THEME CHANGER for Neovim Ui Modifier VS Code extension
-function! SetCursorLineNrColorInsert(mode)
-    " Insert mode: blue
-    if a:mode == "i"
-        call VSCodeNotify('nvim-theme.insert')
-
-    " Replace mode: red
-    elseif a:mode == "r"
-        call VSCodeNotify('nvim-theme.replace')
-    endif
-endfunction
-
-augroup CursorLineNrColorSwap
-    autocmd!
-    autocmd ModeChanged *:[vV\x16]* call VSCodeNotify('nvim-theme.visual')
-    autocmd ModeChanged *:[R]* call VSCodeNotify('nvim-theme.replace')
-    autocmd InsertEnter * call SetCursorLineNrColorInsert(v:insertmode)
-    autocmd InsertLeave * call VSCodeNotify('nvim-theme.normal')
-    autocmd CursorHold * call VSCodeNotify('nvim-theme.normal')
-augroup END
