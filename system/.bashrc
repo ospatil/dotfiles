@@ -1,3 +1,5 @@
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/bashrc.pre.bash" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/bashrc.pre.bash"
+
 DOTFILES_DIR="$HOME/.dotfiles"
 
 # source all dotfiles from ~/.dotfiles/system
@@ -21,4 +23,6 @@ eval "$(fnm env --use-on-cd)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # for inshellisense
-[ -f ~/.inshellisense/bash/init.sh ] && source ~/.inshellisense/bash/init.sh
+# [ -f ~/.inshellisense/bash/init.sh ] && source ~/.inshellisense/bash/init.sh
+
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/bashrc.post.bash" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/bashrc.post.bash"

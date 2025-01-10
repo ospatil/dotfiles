@@ -7,6 +7,5 @@ npmrc
 only-allow
 ungit
 wscat
-@microsoft/inshellisense@latest
 git2txt
 localtunnel
