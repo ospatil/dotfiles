@@ -1,6 +1,6 @@
 DOTFILES_DIR="$HOME/.dotfiles"
 
-# source all dotfiles from ~/.dotfiles/dotfiles
+# source all dotfiles from ~/.dotfiles/system
 for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,functions,path}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
@@ -20,8 +20,6 @@ bindkey -e
 # zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# for fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# for inshellisense
-[[ -f ~/.inshellisense/zsh/init.zsh ]] && source ~/.inshellisense/zsh/init.zsh
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    export TERM=xterm-256color
+fi

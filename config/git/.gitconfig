@@ -5,24 +5,27 @@
 	insteadOf = git+https://
 [push]
 	default = simple
-  autoSetupRemote = true
+	autoSetupRemote = true
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
 	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
 [http]
 	postBuffer = 157286400
-	sslVerify = false
-[credential]
-	helper = /usr/local/bin/git-credential-manager
 [core]
-  editor = code --wait
+	editor = code --wait --new-window
+	pager = less -FMRiX
 [diff]
-  tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+	tool = vscode
 [merge]
-  tool = vscode
-[mergetool "vscode"]
-  cmd = code --wait $MERGED
+	tool = vscode
 [init]
-  defaultBranch = main
+	defaultBranch = main
+[color]
+	ui = auto
+[credential]
+	helper = osxkeychain
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[mergetool "vscode"]
+	cmd = code --wait $MERGED

@@ -14,7 +14,7 @@ dash() {
 }
 
 # Weather
-weather() {
+meteo() {
   local LOCALE
   LOCALE=$(echo "${LANG:-en}" | cut -c1-2)
   if [ $# -eq 0 ]; then
@@ -25,6 +25,12 @@ weather() {
   fi
   curl -s "$LOCALE.wttr.in/$LOCATION"
 }
+
+# UPDATE 2022-01-04: Running yq as docker container makes it tedious to update yaml in place using environment variables
+# therefore, just install it using brew
+# yq() {
+#   docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
+# }
 
 dive() {
   docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest "$@"
@@ -37,22 +43,104 @@ kcat() {
 # Create a file and directories in the path along the way
 touch2() { mkdir -p "$(dirname "$1")" && touch "$1" ; }
 
-pdftools(){
-  docker run -d \
-    -p 8888:8080 \
-    -v "$HOME"/.config/stirling-pdf/trainingData:/usr/share/tessdata \
-    -v "$HOME"/.config/stirling-pdf/extraConfigs:/configs \
-    -v "$HOME"/.config/stirling-pdf/logs:/logs \
-    -e DOCKER_ENABLE_SECURITY=false \
-    -e INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false \
-    -e LANGS=en_US \
-    --name stirling-pdf \
-    --rm \
-    stirlingtools/stirling-pdf:latest
+# =============================================================================
+# iTerm2 Broadcasting Functions
+# =============================================================================
 
-  echo "stirling-pdf available at http://localhost:8888"
+# Broadcast AWS credentials to OTHER tabs only (FIXED)
+broadcast_aws_to_other_tabs() {
+    # Get current AWS env vars
+    aws_vars=$(env | grep '^AWS_' | sed 's/^/export /')
+
+    if [ -z "$aws_vars" ]; then
+        echo "No AWS environment variables found"
+        return 1
+    fi
+
+    # Send to other tabs only using session comparison
+    osascript -e "
+    tell application \"iTerm2\"
+        tell current window
+            set currentSession to current session
+            repeat with t in tabs
+                tell current session of t
+                    if it is not equal to currentSession then
+                        write text \"$aws_vars\"
+                    end if
+                end tell
+            end repeat
+        end tell
+    end tell"
+
+    echo "AWS credentials broadcasted to other iTerm2 tabs (excluding current)"
 }
 
-portinuse() {
-  lsof -nP -i :"$1"
+# Broadcast current directory to OTHER iTerm2 tabs only (FIXED)
+broadcast_cd_to_other_tabs() {
+    current_dir=$(pwd)
+
+    osascript -e "
+    tell application \"iTerm2\"
+        tell current window
+            set currentSession to current session
+            repeat with t in tabs
+                tell current session of t
+                    if it is not equal to currentSession then
+                        write text \"cd '$current_dir'\"
+                    end if
+                end tell
+            end repeat
+        end tell
+    end tell"
+
+    echo "Broadcasted 'cd $current_dir' to other iTerm2 tabs (excluding current)"
+}
+
+# General command broadcaster - send to OTHER tabs only (FIXED)
+broadcast_to_other_tabs() {
+    local command="$*"
+
+    if [ -z "$command" ]; then
+        echo "Usage: broadcast_to_other_tabs <command>"
+        return 1
+    fi
+
+    osascript -e "
+    tell application \"iTerm2\"
+        tell current window
+            set currentSession to current session
+            repeat with t in tabs
+                tell current session of t
+                    if it is not equal to currentSession then
+                        write text \"$command\"
+                    end if
+                end tell
+            end repeat
+        end tell
+    end tell"
+
+    echo "Broadcasted '$command' to other iTerm2 tabs (excluding current)"
+}
+
+# General command broadcaster - send to ALL tabs
+broadcast_to_iterm_tabs() {
+    local command="$*"
+
+    if [ -z "$command" ]; then
+        echo "Usage: broadcast_to_iterm_tabs <command>"
+        return 1
+    fi
+
+    osascript -e "
+    tell application \"iTerm2\"
+        tell current window
+            repeat with t in tabs
+                tell current session of t
+                    write text \"$command\"
+                end tell
+            end repeat
+        end tell
+    end tell"
+
+    echo "Broadcasted '$command' to all iTerm2 tabs"
 }
